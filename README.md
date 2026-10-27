@@ -1,15 +1,45 @@
 # 🧬 Latent Space Explorer — StyleGAN2
 
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-StyleGAN2--ADA-ee4c2c.svg)](https://pytorch.org/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B.svg)](https://streamlit.io/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0369A1,50:0284C7,100:38BDF8&height=220&section=header&text=Latent%20Space%20Explorer&fontSize=48&fontColor=ffffff&animation=fadeIn&desc=Geodesic%20Vector%20Interpolation%20%26%20StyleGAN2-ADA%20Generative%20Manifolds&descSize=15&descAlignY=68" width="100%" alt="StyleGAN2 Ocean Blue Waving Banner"/>
+</p>
 
-An interactive deep learning application built with **Streamlit** and **PyTorch** for exploring continuous latent space manifolds, geodesic and linear vector interpolations ($z \in \mathcal{Z}$ and $w \in \mathcal{W}$), and high-resolution generative image synthesis using NVIDIA's **StyleGAN2-ADA** architecture.
+<p align="center">
+  An interactive deep learning application built with <b>Streamlit</b> and <b>PyTorch</b> for exploring continuous latent space manifolds, geodesic and linear vector interpolations ($z \in \mathcal{Z}$ and $w \in \mathcal{W}$), and high-resolution generative image synthesis using NVIDIA's <b>StyleGAN2-ADA</b> architecture.
+</p>
+
+<p align="center">
+  <a href="https://github.com/prakruthidevanga/Latent_Space_Explorer_StyleGAN2">
+    <img src="https://img.shields.io/badge/💻_Codebase-GitHub_Repository-1F2937?style=for-the-badge&logo=github&logoColor=white" alt="Source Code"/>
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Architecture-StyleGAN2--ADA%20(PyTorch)-0369A1?style=flat-square" alt="StyleGAN2-ADA"/>
+  <img src="https://img.shields.io/badge/Interface-Streamlit%20Interactive-0284C7?style=flat-square" alt="Streamlit"/>
+  <img src="https://img.shields.io/badge/Dataset-AFHQ%20Cat%20(512x512)-38BDF8?style=flat-square" alt="AFHQ Cat"/>
+  <img src="https://img.shields.io/badge/Evaluation-L2%20Euclidean%20Distance-0C4A6E?style=flat-square" alt="L2 Distance"/>
+</p>
 
 ---
 
-## 📌 Project Overview
+## 📌 Table of Contents
+
+- [📖 Project Overview](#-project-overview)
+- [🎯 Objectives](#-objectives)
+- [✨ Key Features](#-key-features)
+- [🏗️ Generative Pipeline Architecture](#️-generative-pipeline-architecture)
+- [🛠️ Technology Stack](#️-technology-stack)
+- [📁 Repository Structure](#-repository-structure)
+- [⚙️ Installation and Setup](#️-installation-and-setup)
+- [🧪 Mathematical Verification & Unit Tests](#-mathematical-verification--unit-tests)
+- [🔮 Future Enhancements](#-future-enhancements)
+- [🤝 Contributing](#-contributing)
+- [👩‍💻 Author & Accreditations](#-author--accreditations)
+
+---
+
+## 📖 Project Overview
 
 Generative Adversarial Networks (GANs) map low-dimensional continuous probability distributions (latent space $\mathcal{Z}$) to complex high-dimensional image manifolds. **Latent Space Explorer** provides a visual and mathematical testbed to examine latent vector continuity, endpoint Euclidean distances ($L_2$), and smooth semantic transitions between generated subjects.
 
@@ -22,7 +52,7 @@ Generative Adversarial Networks (GANs) map low-dimensional continuous probabilit
 
 ---
 
-## 🏗️ System Architecture & Generative Pipeline
+## 🏗️ Generative Pipeline Architecture
 
 ```mermaid
 flowchart LR
@@ -36,7 +66,22 @@ flowchart LR
 
 ---
 
-## 📂 Repository Structure
+## 🛠️ Technology Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=pytorch,python,git,github,vscode&theme=dark" alt="StyleGAN2 Tech Stack"/>
+</p>
+
+| Component | Library / Framework | Implementation Role |
+| :--- | :--- | :--- |
+| **Generative Framework** | PyTorch / StyleGAN2-ADA | Synthesis network execution and custom tensor operations |
+| **Dashboard UI** | Streamlit | Interactive sliders, visual preview galleries, and charts |
+| **Vector Mathematics** | NumPy, SciPy | Latent vector sampling, spherical interpolations, and norms |
+| **Image Processing** | Pillow (PIL), Matplotlib | Dynamic image rendering and telemetry plotting |
+
+---
+
+## 📁 Repository Structure
 
 ```text
 Latent_Space_Explorer_StyleGAN2/
@@ -56,56 +101,42 @@ Latent_Space_Explorer_StyleGAN2/
 
 ---
 
-## ⚙️ Installation & Setup Instructions
+## ⚙️ Installation and Setup
 
 ### Prerequisites
 - **OS:** Windows 10/11, Linux, or macOS
 - **Python:** 3.10 or 3.11 recommended for StyleGAN2-ADA compatibility
 - **Hardware:** CUDA-capable NVIDIA GPU recommended for fast inference; CPU mode supported
 
----
-
 ### Step 1: Clone Repository & Create Environment
-
 ```powershell
-# Clone the repository
 git clone https://github.com/prakruthidevanga/Latent_Space_Explorer_StyleGAN2.git
 cd Latent_Space_Explorer_StyleGAN2
-
-# Create and activate virtual environment
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
 ### Step 2: Install Dependencies & Setup Third-Party Code
-
 ```powershell
-# Install required packages
 pip install -r requirements.txt
-
-# Or run the automated setup script (installs packages and clones official NVIDIA repo)
 Set-ExecutionPolicy -Scope Process Bypass
 .\setup_windows.ps1
 ```
 
 ### Step 3: Download Pretrained Checkpoint
-
 ```powershell
-# Download the AFHQ Cat 512x512 pretrained model
 python download_model.py --model afhqcat
 ```
-*Supported models include: `afhqcat`, `afhqdog`, `afhqwild`, `ffhq`, and `metfaces`.*
 
-### Step 4: Launch the Streamlit Explorer
-
+### Step 4: Launch Streamlit Explorer
 ```powershell
 streamlit run app.py
 ```
-*The interactive dashboard will open automatically at `http://localhost:8501`.*
+*Open `http://localhost:8501` to explore the generative latent space.*
 
 ---
 
-## 🔬 Mathematical Verification & Unit Tests
+## 🧪 Mathematical Verification & Unit Tests
 
 The mathematical interpolation logic is covered by unit tests verifying endpoint preservation, linear scaling, and deterministic seeding:
 
@@ -115,17 +146,37 @@ python -m unittest discover -s tests
 
 ---
 
-## 🛠️ Technology Stack
+## 🔮 Future Enhancements
 
-- **Deep Learning Framework:** PyTorch, Torchvision
-- **Generative Architecture:** NVIDIA StyleGAN2-ADA (Adaptive Discriminator Augmentation)
-- **User Interface:** Streamlit, Matplotlib, PIL
-- **Numerical Processing:** NumPy, SciPy
+- 🌐 **WebGPU / ONNX Export:** Export pruned generator models for in-browser client-side inference.
+- 🎨 **Semantic Attribute Editing:** Project labeled attribute vectors (smile, age, hair color) into the intermediate $\mathcal{W}$ space.
 
 ---
 
-## 👩‍💻 Author & Contributions
+## 🤝 Contributing
 
-- **Author:** Prakruthi B R ([@prakruthidevanga](https://github.com/prakruthidevanga))
-- **Program:** BCA (Specialization in Artificial Intelligence and Machine Learning), Alliance University.
-- **Contributions:** Implemented the Streamlit interactive dashboard, latent interpolation mathematical utilities, automated model downloader, and unit test suite.
+Contributions and pull requests are welcomed!
+
+---
+
+## 👩‍💻 Author & Accreditations
+
+**Prakruthi B R**  
+*BCA Student specializing in Artificial Intelligence & Machine Learning*  
+*Alliance University, Bengaluru (CGPA: 9.60)*  
+*GeeksforGeeks Campus Mantri (2026)*
+
+- 💻 **GitHub:** [@prakruthidevanga](https://github.com/prakruthidevanga)
+- 🔗 **LinkedIn:** [Prakruthi BR](https://linkedin.com/in/prakruthi-br)
+- 🌐 **Portfolio:** [prakruthidevanga.github.io](https://prakruthidevanga.github.io/)
+- 📬 **Email:** [prakruthibr2006@gmail.com](mailto:prakruthibr2006@gmail.com)
+
+---
+
+<p align="center">
+  <b>🧬 Exploring the geometry of deep generative manifolds.</b>
+</p>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0369A1,50:0284C7,100:38BDF8&height=110&section=footer" width="100%" alt="StyleGAN2 Footer"/>
+</p>
