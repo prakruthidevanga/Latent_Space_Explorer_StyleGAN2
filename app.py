@@ -82,7 +82,7 @@ def main() -> None:
         st.header("Controls")
         seed_a = int(st.number_input("Seed A", min_value=0, max_value=2**32 - 1, value=17, step=1))
         seed_b = int(st.number_input("Seed B", min_value=0, max_value=2**32 - 1, value=83, step=1))
-        t = st.slider("Latent interpolation (t)", min_value=0.0, max_value=1.0, value=0.5, step=0.05)
+        t = st.slider("Latent interpolation (t)", min_value=0.0, max_value=1.0, value=0.5, step=0.5)
         steps = st.selectbox("Images in interpolation sequence (including endpoints)", options=[3, 5, 7], index=0)
         class_label = st.selectbox("Image class (CIFAR-10)", options=CIFAR10_CLASSES, index=3, help="The official CIFAR-10 checkpoint is class-conditional. Default: cat.")
         class_index = CIFAR10_CLASSES.index(class_label)
