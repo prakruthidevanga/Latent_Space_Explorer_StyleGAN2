@@ -101,7 +101,32 @@ def main() -> None:
     if generate_clicked:
         try:
             with st.status("Loading the pretrained model and generating imagesâ€¦", expanded=True) as status:
-                status.write("Loading model checkpointâ€¦")
+                status.write("Loading model checkpointâ€¦")                
+                checkpoint_path = Path(network_path).expanduser()
+
+                if (
+                    not checkpoint_path.is_file()
+                    and checkpoint_path.resolve()
+                    == DEFAULT_MODEL_PATH.resolve()
+                ):
+                    status.write(
+                        "Downloading the CIFAR-10 model checkpoint..."
+                    )
+
+                    subprocess.run(
+                        [
+                            sys.executable,
+                            str(ROOT / "download_model.py"),
+                            "--model",
+                            "cifar10",
+                            "--output",
+                            str(checkpoint_path),
+                        ],
+                        cwd=str(ROOT),
+                        check=True,
+                    )
+
+                status.write("Loading model checkpoint...")
                 bundle = cached_load_model(network_path, repo_path, device_choice)
                 if bundle.c_dim not in (0, 10):
                     raise ModelLoadError(
