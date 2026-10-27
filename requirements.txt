@@ -1,0 +1,15 @@
+# Python 3.10 or 3.11 is recommended for compatibility with the legacy StyleGAN2-ADA code.
+streamlit>=1.36,<2.0
+numpy>=1.24,<2.0
+Pillow>=10.0,<12.0
+matplotlib>=3.7,<4.0
+requests>=2.31,<3.0
+scipy>=1.10
+click>=8.1
+ninja>=1.11
+imageio-ffmpeg>=0.4.9
+psutil>=5.9
+tqdm>=4.66
+pytest>=7.4
+# PyTorch is required for inference. If you need CUDA, install the matching build from pytorch.org first.
+torch>=2.2,<2.6

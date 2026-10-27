@@ -1,0 +1,6 @@
+Project: Latent Space Explorer — StyleGAN2
+Frontend: Streamlit
+Backend: modular Python functions using PyTorch + NVIDIA StyleGAN2-ADA PyTorch
+Default model: AFHQ Cat pretrained checkpoint (download separately)
+
+This archive includes the application and tests. It intentionally excludes large pretrained weights and third-party StyleGAN2 source code. Setup instructions are in README.md.

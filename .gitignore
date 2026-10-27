@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+.pytest_cache/
+*.py[cod]
+models/*.pkl
+models/*.part
+third_party/stylegan2-ada-pytorch/
+screenshots/demo.png
